@@ -94,11 +94,8 @@ Alice -> Bob : Holas!
 
 <script>
 var url = "https://www.plantuml.com/plantuml/uml/?";
-var version_displayed = 0;
 
 function permlink() {
-    if (version_displayed==0)
-        return;
     text = document.getElementById('uml').value;
     console.log("text="+text);
     cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
