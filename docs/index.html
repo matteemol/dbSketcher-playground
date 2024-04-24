@@ -31,6 +31,11 @@
 	visibility: hidden;
 }
 
+#debugjava {
+	background-color: #EEE;
+	visibility: hidden;
+}
+
 #uml {
 	width: 100%;
 	height: 100%;
@@ -60,87 +65,62 @@
 </style>
 
 <body>
-<div id=forkme>
-<a href="https://github.com/matteemol/dbSketcher-playground">
-<img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149">
-</a>
-</div>
-<div id=title>
-<h1>PlantUML Link generator</h1>
-</div>
-<div id=lean>
-<p><i>Powered by <a href=https://docs.leaningtech.com/cheerpj>CheerpJ</a>, a Leaning Technologies Java tool</i>
-</p>
-</div>
+
+	<div id=forkme>
+		<a href="https://github.com/matteemol/dbSketcher-playground">
+		<img decoding="async" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" loading="lazy" data-recalc-dims="1"></a>
+	</div>
+
+	<div id=title>
+		<h1>PlantUML Link generator</h1>
+	</div>
+
+	<div id=lean>
+		<p><i>Powered by <a href=https://docs.leaningtech.com/cheerpj>CheerpJ</a>, a Leaning Technologies Java tool</i>
+		</p>
+	</div>
+	
 	<div id=popup>ERROR</div>
+	
 	<div id=debugjava>(...init in progress...)</div>
 
 	<div class=container>
 		<div class=cell>
 			<textarea spellcheck=false id=uml>
-@startuml
-Alice -> Bob : Holasas!
-@enduml
-</textarea>
+			@startuml
+			Alice -> Bob : Holasas!
+			@enduml
+			</textarea>
 		</div>
 
 		<div class=cell>
 			<canvas id="canvas"></canvas>
 		</div>
 
-	</div>
-	<!--container-->
-	<div>
-<!--
-<button onclick='callfuncs()'>PermLink</button><a id=permlink href=.></a>
--->	
-	<button onclick='permlink()'>PermLink</button><a id=permlink href=.></a>
+		<button onclick='generate_link()'>Get Link</button><a id=permlink href=.></a>
+		<button onclick='createPNG()'>Create PNG</button><a id=seeit href=.></a>
 	</div>
 
-	<script>
-/*
-	function callfuncs() {
-		done();
-		permlink();
-	}
-*/
-//cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/plantuml-core.jar", "/app/dbSketcher-playground/", "debugjava").then ( (val1) => {
-//});
-
+<script>
 function permlink() {
-/*		if (version_displayed==0)
-		return;
-*/		text = document.getElementById('uml').value;
+	text = document.getElementById('uml').value;
 	console.log("text="+text);
+
 	cheerpjInit({disableLoadTimeReporting:true,disableErrorReporting:true}).then( (val0) => {
 		cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/plantuml-core.jar", "/app/dbSketcher-playground/", "debugjava").then ( (val1) => {
 			cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
 				console.log("res="+res);
-	/*			var url = window.location.href;
-				var x = url.indexOf("?");
-				if (x==-1)
-					url = url + "?" + res;
-				else
-					url = url.substr(0,x) + "?" + res;
-	*/			// alert(url);
 				url = "https://www.plantuml.com/plantuml/uml/?" + res;
+				alert(url);
 				document.getElementById('permlink').innerText="Link to this page";
 				document.getElementById('permlink').href=url;
 			});
 		});
 	});	
 }
-/*	
-var _inprogress = false;
-var version_input = 0;
-var version_displayed = 0;
 
-function done() {
+function createPNG() {
 	text = document.getElementById('uml').value;
-	version_input++;
-	const current = version_input;
-	if (_inprogress) return;
-	_inprogress = true;
 	document.getElementById('permlink').innerText="";
 	cjCall("com.plantuml.api.cheerpj.v1.Raw", "convert", "light", text).then((raw) => {
 		if (raw.constructor.name=='Int8Array') {
@@ -171,33 +151,8 @@ function done() {
 			document.getElementById('popup').innerText=raw;
 			document.getElementById("popup").style.visibility = "visible";
 		}
-		version_displayed = current;
-		_inprogress = false;
-		if (version_displayed<version_input) done();
 	});
 }
-/*
-var url = window.location.href;
-var x = url.indexOf("?");
-if (x>0)
-	document.getElementById('uml').value = "...in progress...";
-
-cheerpjInit({disableLoadTimeReporting:true,disableErrorReporting:true}).then( (val0) => {
-	cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/plantuml-core.jar", "/app/dbSketcher-playground/", "debugjava").then ( (val1) => {
-/*		if (x>0) {
-			var encoded = url.substr(x+1);
-			console.log(encoded);
-			cjCall("com.plantuml.api.cheerpj.v1.Info", "decode", encoded).then((res) => {
-				document.getElementById('uml').value = res;
-				done();
-			});
-			
-		} else		
-
-			done();
-	});
-});
-*/
 </script>
 
 </body>
