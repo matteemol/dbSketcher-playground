@@ -114,8 +114,6 @@ function generate_link() {
 	});	
 }
 
-generate_link();
-
 function createPNG() {
 	text = document.getElementById('uml').value;
 	document.getElementById('permlink').innerText="";
@@ -150,6 +148,12 @@ function createPNG() {
 		}
 	});
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('The page has loaded!');
+  generate_link();
+});
+
 </script>
 
 </body>
