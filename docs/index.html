@@ -1,9 +1,10 @@
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>PlantUML link generator</title>
-<script src="https://cjrtnc.leaningtech.com/2.3/loader.js"></script>
+  <meta charset="utf-8">
+  <title>PlantUML link generator</title>
+  <script src="https://cjrtnc.leaningtech.com/2.3/loader.js"></script>
 </head>
+
 <style>
 .container {
 	display: flex;
@@ -65,42 +66,35 @@
 </style>
 
 <body>
+  <div id=title>
+    <h1>PlantUML Link generator</h1>
+  </div>
+  <div id=forkme>
+    <a href="https://github.com/matteemol/dbSketcher-playground">
+    <img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149">
+  </div>
+  <div id=lean>
+    <p><i>Powered by <a href=https://docs.leaningtech.com/cheerpj>CheerpJ</a>, a Leaning Technologies Java tool</i></p>
+  </div>
+  <div id=popup>ERROR</div>
+  <div id=debugjava>(...init in progress...)</div>
 
-	<div id=forkme>
-		<a href="https://github.com/matteemol/dbSketcher-playground">
-		<img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149">
-	</div>
-
-	<div id=title>
-		<h1>PlantUML Link generator</h1>
-	</div>
-
-	<div id=lean>
-		<p><i>Powered by <a href=https://docs.leaningtech.com/cheerpj>CheerpJ</a>, a Leaning Technologies Java tool</i>
-		</p>
-	</div>
-	
-	<div id=popup>ERROR</div>
-	
-	<div id=debugjava>(...init in progress...)</div>
-
-	<div class=container>
-		<div class=cell>
-			<textarea spellcheck=false id=uml>
-			@startuml
-			Alice -> Bob : Holasas!
-			@enduml
-			</textarea>
-		</div>
-
-		<div class=cell>
-			<canvas id="canvas"></canvas>
-		</div>
-	</div>
-	<div>
-		<button onclick='generate_link()'>Get Link</button><a id=permlink href=.></a>
-		<button onclick='createPNG()'>Create PNG</button><a id=createpng href=.></a>
-	</div>
+  <div class=container>
+    <div class=cell>
+      <textarea spellcheck=false id=uml>
+@startuml
+Alice -> Bob : Holasas!
+@enduml
+      </textarea>
+    </div>
+    <div class=cell>
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <div>
+    <button onclick='generate_link()'>Get Link</button><a id=permlink href=.></a>
+    <button onclick='createPNG()'>Create PNG</button><a id=createpng href=.></a>
+  </div>
 
 <script>
 function generate_link() {
