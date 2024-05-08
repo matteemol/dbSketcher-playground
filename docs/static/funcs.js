@@ -9,7 +9,7 @@ cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
     console.log("res="+res);
     url = "https://www.plantuml.com/plantuml/uml/" + res;
     // alert(url);
-    document.getElementById('permlink').innerText="See in PlantUML Server";
+//    document.getElementById('permlink').innerText="See in PlantUML Server";
     document.getElementById('permlink').href=url;
 });
 }

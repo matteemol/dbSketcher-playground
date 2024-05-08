@@ -92,7 +92,7 @@ recipe_type::type_id --> recipes::type_id
 @enduml</textarea>
           </div>
           <div>
-            <button class=btn onclick='callfuncs()'>Visualize it!</button><a id=permlink href=.></a>
+            <a id=visbutton onclick='createPNG()'><button class=btn>Visualize it!</button></a>
           </div>  
         </div>
         <div class="vis">
@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log(window.location.pathname)
   loadEngine();
   console.log('Playground ready')
+  generate_link();
 });
 </script>
   
