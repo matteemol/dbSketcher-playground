@@ -3,7 +3,7 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"/>
 <title>dbSketcher Playground</title>
 <script src="https://cjrtnc.leaningtech.com/2.3/loader.js"></script>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
 
@@ -21,18 +21,18 @@
           <p>Paste the content of the CSV file to run the dbSketcher script here:</p>
           <div class=cell>
               <textarea spellcheck=false id=csv>
-  recipes, recipe_id, integer primary key
-  recipes, name, text
-  recipes, type_id, integer foreign key (recipe_type)
-  recipe_type, type_id, integer primary key
-  recipe_type, type_name, text not null
-  recipe_ingredients, recipe_id, integer foreign key (recipes)
-  recipe_ingredients, ingredient_id, integer foreign key (ingredient_list)
-  recipe_ingredients, quantity, real not null
-  recipe_ingredients, unit_of_measurement, text not null
-  recipe_ingredients, preparation, text
-  ingredient_list, ingredient_id, integer primary key
-  ingredient_list, ingredient_name, text not null</textarea>
+recipes, recipe_id, integer primary key
+recipes, name, text
+recipes, type_id, integer foreign key (recipe_type)
+recipe_type, type_id, integer primary key
+recipe_type, type_name, text not null
+recipe_ingredients, recipe_id, integer foreign key (recipes)
+recipe_ingredients, ingredient_id, integer foreign key (ingredient_list)
+recipe_ingredients, quantity, real not null
+recipe_ingredients, unit_of_measurement, text not null
+recipe_ingredients, preparation, text
+ingredient_list, ingredient_id, integer primary key
+ingredient_list, ingredient_name, text not null</textarea>
           </div>
           <div>
             <button class=btn onclick='callfuncs()'>Sketch it!</button><a id=sketch_button href=''></a>
@@ -43,53 +43,53 @@
           <p>The dbSketcher script generates a <i>.uml</i> file with the following output:</p>
           <div class=cell>
             <textarea spellcheck=false id=uml>
-  @startuml
-  
-  left to right direction
-  skinparam roundcorner 15
-  skinparam shadowing true
-  skinparam handwritten false
-  skinparam class {
-      BackgroundColor white
-      ArrowColor #2688d4
-      BorderColor #2688d4
-  }
-  
-  !define table(x) entity x << (T, LightSkyBlue) >>
-  !define primary_key(x) <b><color:#b8861b><&key></color> x</b>
-  !define foreign_key(x) <color:#aaaaaa><&key></color> <u>x</u>
-  !define column(x) <color:#efefef><&media-record></color> x
-  !define column_fk(x) <color:#efefef><&media-record></color> <u>x</u>
-  
-  table( ingredient_list ) {
-    primary_key( ingredient_id ): INTEGER PRIMARY KEY
-    column( ingredient_name ): TEXT NOT NULL
-  }
-  
-  table( recipe_ingredients ) {
-    foreign_key( recipe_id ): INTEGER
-    foreign_key( ingredient_id ): INTEGER
-    column( quantity ): REAL NOT NULL
-    column( unit_of_measurement ): TEXT NOT NULL
-    column( preparation ): TEXT
-  }
-  
-  table( recipe_type ) {
-    primary_key( type_id ): INTEGER PRIMARY KEY
-    column( type_name ): TEXT NOT NULL
-  }
-  
-  table( recipes ) {
-    primary_key( recipe_id ): INTEGER PRIMARY KEY
-    column( name ): TEXT
-    foreign_key( type_id ): INTEGER
-  }
-  
-  ingredient_list::ingredient_id --> recipe_ingredients::ingredient_id
-  recipes::recipe_id --> recipe_ingredients::recipe_id
-  recipe_type::type_id --> recipes::type_id
-  
-  @enduml</textarea>
+@startuml
+
+left to right direction
+skinparam roundcorner 15
+skinparam shadowing true
+skinparam handwritten false
+skinparam class {
+    BackgroundColor white
+    ArrowColor #2688d4
+    BorderColor #2688d4
+}
+
+!define table(x) entity x << (T, LightSkyBlue) >>
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> <u>x</u>
+!define column(x) <color:#efefef><&media-record></color> x
+!define column_fk(x) <color:#efefef><&media-record></color> <u>x</u>
+
+table( ingredient_list ) {
+  primary_key( ingredient_id ): INTEGER PRIMARY KEY
+  column( ingredient_name ): TEXT NOT NULL
+}
+
+table( recipe_ingredients ) {
+  foreign_key( recipe_id ): INTEGER
+  foreign_key( ingredient_id ): INTEGER
+  column( quantity ): REAL NOT NULL
+  column( unit_of_measurement ): TEXT NOT NULL
+  column( preparation ): TEXT
+}
+
+table( recipe_type ) {
+  primary_key( type_id ): INTEGER PRIMARY KEY
+  column( type_name ): TEXT NOT NULL
+}
+
+table( recipes ) {
+  primary_key( recipe_id ): INTEGER PRIMARY KEY
+  column( name ): TEXT
+  foreign_key( type_id ): INTEGER
+}
+
+ingredient_list::ingredient_id --> recipe_ingredients::ingredient_id
+recipes::recipe_id --> recipe_ingredients::recipe_id
+recipe_type::type_id --> recipes::type_id
+
+@enduml</textarea>
           </div>
           <div>
             <button class=btn onclick='callfuncs()'>Visualize it!</button><a id=permlink href=.></a>
@@ -116,23 +116,74 @@
     </main>
   
     <script>
-        function generate_link() {
-            text = document.getElementById('uml').value;
-            console.log("text="+text);
-        
-            cheerpjInit({disableLoadTimeReporting:true,disableErrorReporting:true}).then( (val0) => {
-                cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/plantuml-core.jar", "/app/dbSketcher-playground/", "debugjava").then ( (val1) => {
-                    cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
-                        console.log("res="+res);
-                        url = "https://www.plantuml.com/plantuml/uml/?" + res;
-                        alert(url);
-                        document.getElementById('permlink').innerText="Link to this page";
-                        document.getElementById('permlink').href=url;
-                    });
-                });
-            });	
-        }
-        
+
+function callfuncs() {
+        alert("Click!");
+      }
+
+function generate_link() {
+	text = document.getElementById('uml').value;
+	console.log("text="+text);
+	cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
+		console.log("res="+res);
+		url = "https://www.plantuml.com/plantuml/uml/" + res;
+		// alert(url);
+		document.getElementById('permlink').innerText="See in PlantUML Server";
+		document.getElementById('permlink').href=url;
+	});
+}
+
+function createPNG() {
+	text = document.getElementById('uml').value;
+//	document.getElementById('permlink').innerText="";
+	cjCall("com.plantuml.api.cheerpj.v1.Raw", "convert", "light", text).then((raw) => {
+		if (raw.constructor.name=='Int8Array') {
+			document.getElementById("popup").style.visibility = "hidden";
+			const canvas = document.getElementById('canvas');
+			canvas.style.visibility = "visible";
+			const ctx = canvas.getContext('2d');
+
+			const width = (255&raw[1]) * 256 + (255&raw[2]); 
+			const height = (255&raw[3]) * 256 + (255&raw[4]);
+
+			console.log("width="+ width+" height="+height);
+			canvas.width = width;
+			canvas.height = height;
+
+			const imageData = ctx.createImageData(width, height);
+
+			// Fill the array with RGBA values
+			for (let i = 0; i < imageData.data.length; i ++)
+			  imageData.data[i] = 255&raw[5+i]
+
+			// Force refresh?
+			canvas.width+=10;
+			ctx.putImageData(imageData, 0, 0);
+
+		} else {
+			const obj = JSON.parse(raw);
+			document.getElementById('popup').innerText=raw;
+			document.getElementById("popup").style.visibility = "visible";
+		}
+	});
+}
+
+function loadEngine() {
+  cheerpjInit({disableLoadTimeReporting:false,disableErrorReporting:false}).then( (val0) => {
+    cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/plantuml-core.jar", "/app/dbSketcher-playground/", "debugjava").then ( (val1) => {
+	console.log("Engine started");
+  generate_link();
+    });
+  });
+}	
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('The page has loaded!');
+  console.log(window.location.pathname)
+  loadEngine();
+});
+
+/*        
         function createPNG() {
             text = document.getElementById('uml').value;
             document.getElementById('permlink').innerText="";
@@ -167,10 +218,7 @@
                 }
             });
         }
-
-        function callfuncs() {
-        alert("Click!");
-      }
+*/
     </script>
   
   </body>
