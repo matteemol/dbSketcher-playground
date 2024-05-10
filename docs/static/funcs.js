@@ -15,6 +15,14 @@ cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
 }
 
 function createPNG() {
+    text = document.getElementById('uml').value;
+    console.log("text="+text);
+    cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png");
+/*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
+        console.log("res="+res);    
+*/}
+    /*
+function createPNG() {
 text = document.getElementById('uml').value;
 //	document.getElementById('permlink').innerText="";
 cjCall("com.plantuml.api.cheerpj.v1.Raw", "convert", "light", text).then((raw) => {
@@ -48,6 +56,7 @@ cjCall("com.plantuml.api.cheerpj.v1.Raw", "convert", "light", text).then((raw) =
     }
 });
 }
+*/
 
 function loadEngine() {
 cheerpjInit({disableLoadTimeReporting:false,disableErrorReporting:false}).then( (val0) => {
