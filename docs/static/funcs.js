@@ -1,6 +1,9 @@
 var shortlink = "";
 
 function callfuncs() {
+    document.getElementById('render-image').display="block";
+    document.getElementById('render-image').width="auto";
+    document.getElementById('render-image').height="auto";
     alert("Click!");
   }
 
@@ -28,9 +31,6 @@ function createPNG() {
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
 */
-    document.getElementById('render-image').display="block";
-    document.getElementById('render-image').width="auto";
-    document.getElementById('render-image').height="auto";
 }
     /*
 function createPNG() {
