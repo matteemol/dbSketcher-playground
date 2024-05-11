@@ -72,12 +72,12 @@ main {
   margin: 0.3rem;
   border-radius: 15px;
 }
-
+/*
 .render-button {
   left: 50%;
   transform: translate(-50%, 0)
 }
-
+*/
 .output {
   flex-direction: row;
   justify-content: space-between;
