@@ -24,6 +24,9 @@ function createPNG() {
         cjFileBlob("result.png").then((blob) => {
             document.getElementById('render-image').src = window.URL.createObjectURL(blob);
         });
+        document.getElementById('render-image').display="block";
+        document.getElementById('render-image').width="auto";
+        document.getElementById('render-image').height="auto";
     });
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
