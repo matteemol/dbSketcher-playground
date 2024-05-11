@@ -1,4 +1,4 @@
-var res = "";
+var shortlink = "";
 
 function callfuncs() {
     alert("Click!");
@@ -9,10 +9,10 @@ text = document.getElementById('uml').value;
 console.log("text="+text);
 cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
     console.log("res="+res);
+    shortlink = res;
     url = "https://www.plantuml.com/plantuml/uml/" + res;
     // alert(url);
 //    document.getElementById('permlink').innerText="See in PlantUML Server";
-    document.getElementById('shortlink').innerText=url;
 });
 }
 
@@ -21,6 +21,9 @@ function createPNG() {
     console.log("text="+text);
     cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png").then((res) => {
         console.log("png res="+res);
+        cjFileBlob("result.png").then((blob) => {
+            document.getElementById('render-image').src = window.URL.createObjectURL(blob);
+        });
     });
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
