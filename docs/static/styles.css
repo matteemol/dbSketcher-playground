@@ -127,8 +127,8 @@ p {
 
 .shortlink {
   text-align: center;
-/*  visibility: collapse;
-*/}
+  visibility: collapse;
+}
 
 .cell {
   text-align: center;
