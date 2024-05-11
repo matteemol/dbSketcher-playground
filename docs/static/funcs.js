@@ -10,14 +10,16 @@ cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
     url = "https://www.plantuml.com/plantuml/uml/" + res;
     // alert(url);
 //    document.getElementById('permlink').innerText="See in PlantUML Server";
-    document.getElementById('permlink').href=url;
+    document.getElementById('shortlink').innerText=url;
 });
 }
 
 function createPNG() {
     text = document.getElementById('uml').value;
     console.log("text="+text);
-    cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png");
+    cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png").then((res) => {
+        console.log("png res="+res);
+    });
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
 */}

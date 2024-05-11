@@ -35,7 +35,7 @@ ingredient_list, ingredient_id, integer primary key
 ingredient_list, ingredient_name, text not null</textarea>
           </div>
           <div>
-            <button class=btn onclick='callfuncs()'>Sketch it!</button><a id=sketch_button href=''></a>
+            <button class=btn onclick='generate_link()'>Sketch it!</button><a id=sketch_button href=''></a>
           </div>  
         </div>
         <div class="output">
@@ -94,6 +94,7 @@ recipe_type::type_id --> recipes::type_id
           <div>
             <a id=visbutton onclick='createPNG()'><button class=btn>Visualize it!</button></a>
           </div>  
+          <div class="shortlink">Shortlink</div>
         </div>
         <div class="vis">
           <h2>3: db Diagram</h2>

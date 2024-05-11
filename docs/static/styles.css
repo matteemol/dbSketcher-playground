@@ -125,6 +125,11 @@ p {
   visibility: hidden;
 }
 
+.shortlink {
+  text-align: center;
+/*  visibility: collapse;
+*/}
+
 .cell {
   text-align: center;
 }
