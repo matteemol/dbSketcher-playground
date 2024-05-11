@@ -1,9 +1,10 @@
 var shortlink = "";
 
 function callfuncs() {
-    document.getElementById('render-image').display="block";
-    document.getElementById('render-image').width="100%";
-    document.getElementById('render-image').height="100%";
+    document.getElementById('render-image').style.display="block";
+    document.getElementById('render-image').style.width="100%";
+    document.getElementById('render-image').style.height="100%";
+//    document.getElementById('render-image').style.object-fit="cover";
     alert("Click!");
   }
 
