@@ -3,7 +3,7 @@ var shortlink = "";
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
     document.getElementById('render-image').style.width="100%";
-    document.getElementById('render-image').style.height="100%";
+    document.getElementById('render-image').style.height="80%";
     document.getElementById('render-image').style.objectFit="contain";
     document.getElementById('render-image').style.position="top";
     alert("Click!");
