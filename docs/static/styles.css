@@ -75,6 +75,7 @@ main {
 
 .render-button {
   justify-self: center;
+  visibility: hidden;
 }
 
 .output {

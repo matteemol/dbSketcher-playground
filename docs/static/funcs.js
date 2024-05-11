@@ -2,9 +2,6 @@ var shortlink = "";
 
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
-    document.getElementById('render-image').style.width="100%";
-    document.getElementById('render-image').style.height="100%";
-    document.getElementById('render-image').style.objectFit="contain";
     alert("Click!");
   }
 
@@ -34,7 +31,8 @@ function createPNG() {
         cjFileBlob("result.png").then((blob) => {
             document.getElementById('render-image').src = window.URL.createObjectURL(blob);
         });
-    adjust_size();
+        document.getElementsByClassName('render-button')[0].style.visibility="visible";
+        adjust_size();
     });
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
