@@ -2,8 +2,8 @@ var shortlink = "";
 
 function callfuncs() {
     document.getElementById('render-image').display="block";
-    document.getElementById('render-image').width="auto";
-    document.getElementById('render-image').height="auto";
+    document.getElementById('render-image').width="100%";
+    document.getElementById('render-image').height="100%";
     alert("Click!");
   }
 
