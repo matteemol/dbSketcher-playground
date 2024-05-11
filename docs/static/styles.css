@@ -73,6 +73,11 @@ main {
   border-radius: 15px;
 }
 
+.render-button {
+  left: 50%;
+  transform: translate(-50%, 0)
+}
+
 .output {
   flex-direction: row;
   justify-content: space-between;
@@ -119,21 +124,12 @@ p {
 .credits p {
   margin: 0px;
 }
-/*
+
 .debug {
   text-align: center;
   visibility: hidden;
 }
-*/
-/*
-img {
-  display: block;
-/*  max-width:230px;
-  max-height:95px;
-*//*  width: auto;
-  height: auto;
-}
-*/
+
 .cell {
   text-align: center;
   display: grid;
