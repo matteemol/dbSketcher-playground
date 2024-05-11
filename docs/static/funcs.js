@@ -8,6 +8,12 @@ function callfuncs() {
     alert("Click!");
   }
 
+function adjust_size() {
+    document.getElementById('render-image').style.width="100%";
+    document.getElementById('render-image').style.height="100%";
+    document.getElementById('render-image').style.objectFit="contain";
+    }
+    
 function generate_link() {
 text = document.getElementById('uml').value;
 console.log("text="+text);
@@ -28,6 +34,7 @@ function createPNG() {
         cjFileBlob("result.png").then((blob) => {
             document.getElementById('render-image').src = window.URL.createObjectURL(blob);
         });
+    adjust_size();
     });
 /*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
         console.log("res="+res);    
