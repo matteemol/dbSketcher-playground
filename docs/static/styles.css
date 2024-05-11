@@ -136,6 +136,8 @@ img {
 */
 .cell {
   text-align: center;
+  display: grid;
+  flex-direction: column;
 }
 
 textarea {
