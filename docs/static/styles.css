@@ -72,12 +72,11 @@ main {
   margin: 0.3rem;
   border-radius: 15px;
 }
-/*
+
 .render-button {
-  left: 50%;
-  transform: translate(-50%, 0)
+  justify-self: center;
 }
-*/
+
 .output {
   flex-direction: row;
   justify-content: space-between;
@@ -128,6 +127,7 @@ p {
 .debug {
   text-align: center;
   visibility: hidden;
+  height: 0;
 }
 
 .cell {
