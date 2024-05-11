@@ -119,17 +119,12 @@ p {
 .credits p {
   margin: 0px;
 }
-
+/*
 .debug {
   text-align: center;
   visibility: hidden;
 }
-
-.shortlink {
-  text-align: center;
-  visibility: hidden;
-}
-
+*/
 .cell {
   text-align: center;
 }

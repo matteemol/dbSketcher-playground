@@ -1,3 +1,5 @@
+var res = "";
+
 function callfuncs() {
     alert("Click!");
   }
