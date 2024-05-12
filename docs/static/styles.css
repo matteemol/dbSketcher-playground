@@ -74,6 +74,7 @@ main {
 }
 
 .render-button {
+  flex-direction: row;
   justify-self: center;
   visibility: hidden;
 }
