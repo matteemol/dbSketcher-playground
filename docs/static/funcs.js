@@ -2,14 +2,13 @@ var shortlink = "";
 
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
-    document.getElementById('colb').style.width="100%";
     alert("Click!");
   }
 
-function adjust_size() {
-    document.getElementById('render-image').style.width="100%";
-    document.getElementById('render-image').style.height="100%";
-    document.getElementById('render-image').style.objectFit="contain";
+function adjust_size(elementId) {
+    document.getElementById(elementId).style.width="100%";
+    document.getElementById(elementId).style.height="100%";
+    document.getElementById(elementId).style.objectFit="contain";
     }
     
 function generate_link() {
@@ -33,7 +32,7 @@ function createPNG() {
             document.getElementById('render-image').src = window.URL.createObjectURL(blob);
         });
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
-        adjust_size();
+        adjust_size('render-image');
     });
 }
 
@@ -44,7 +43,7 @@ function createSVG() {
         console.log("svg res="+res);
         document.getElementById('colb').innerHTML=res;
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
-//        adjust_size();
+        adjust_size('colb');
     });
 }
 
