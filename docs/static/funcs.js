@@ -2,6 +2,7 @@ var shortlink = "";
 
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
+    document.getElementsByClassName('render-button')[0].style.visibility="visible";
     alert("Click!");
   }
 
