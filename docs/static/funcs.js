@@ -30,11 +30,11 @@ function createPNG() {
     cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png").then((res) => {
         console.log("png res="+res);
         cjFileBlob("result.png").then((blob) => {
-            console.log("blob="+blob);
             document.getElementById('render-image').src = window.URL.createObjectURL(blob);
         });
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
         adjust_size('render-image');
+        document.getElementById('render-image').href = document.getElementById('render-image').src;
     });
 }
 
