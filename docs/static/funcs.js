@@ -2,6 +2,7 @@ var shortlink = "";
 
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
+    document.getElementById('colb').style.width="100%";
     alert("Click!");
   }
 
