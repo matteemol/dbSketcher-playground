@@ -92,7 +92,7 @@ recipe_type::type_id --> recipes::type_id
 @enduml</textarea>
           </div>
           <div>
-            <a id=visbutton onclick='createSVG()'><button class=btn>Visualize it!</button></a>
+            <a id=visbutton onclick='createPNG()'><button class=btn>Visualize it!</button></a>
           </div>  
         </div>
         <div class="vis">
@@ -100,10 +100,8 @@ recipe_type::type_id --> recipes::type_id
           <div class=debug id=popup>ERROR</div>
           <div class=debug id=debugjava>(...debug div...)</div>
           <div class=cell>
-            <div id=colb></div>
-<!--            <div class=render><img id="render-image"></div>
--->
-            <div class="render-button">
+            <div class=render><img id="render-image"></div>
+              <div class="render-button">
 <!--                <button class=btn onclick='callfuncs()'>Edit in PlantUML Server</button><a id=permlink href=.></a>
 -->                <a onclick='callfuncs()'><button class=btn>Edit in PlantUML Server</button></a>
               </div>

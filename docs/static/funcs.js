@@ -34,46 +34,21 @@ function createPNG() {
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
         adjust_size();
     });
-/*    cjCall("com.plantuml.api.cheerpj.v1.Png", "encode", text).then((res) => {
-        console.log("res="+res);    
-*/
 }
-    /*
-function createPNG() {
-text = document.getElementById('uml').value;
-//	document.getElementById('permlink').innerText="";
-cjCall("com.plantuml.api.cheerpj.v1.Raw", "convert", "light", text).then((raw) => {
-    if (raw.constructor.name=='Int8Array') {
-        document.getElementById("popup").style.visibility = "hidden";
-        const canvas = document.getElementById('canvas');
-        canvas.style.visibility = "visible";
-        const ctx = canvas.getContext('2d');
 
-        const width = (255&raw[1]) * 256 + (255&raw[2]); 
-        const height = (255&raw[3]) * 256 + (255&raw[4]);
-
-        console.log("width="+ width+" height="+height);
-        canvas.width = width;
-        canvas.height = height;
-
-        const imageData = ctx.createImageData(width, height);
-
-        // Fill the array with RGBA values
-        for (let i = 0; i < imageData.data.length; i ++)
-          imageData.data[i] = 255&raw[5+i]
-
-        // Force refresh?
-        canvas.width+=10;
-        ctx.putImageData(imageData, 0, 0);
-
-    } else {
-        const obj = JSON.parse(raw);
-        document.getElementById('popup').innerText=raw;
-        document.getElementById("popup").style.visibility = "visible";
-    }
-});
+function createSVG() {
+    text = document.getElementById('uml').value;
+    console.log("text="+text);
+    cjCall("com.plantuml.api.cheerpj.v1.Svg", "convert", "light", text).then((res) => {
+        console.log("svg res="+res);
+        document.getElementById('colb').innerHTML=res;
+        document.getElementsByClassName('render-button')[0].style.visibility="visible";
+//        adjust_size();
+    });
 }
-*/
+
+
+
 
 function loadEngine() {
 cheerpjInit({disableLoadTimeReporting:false,disableErrorReporting:false}).then( (val0) => {
