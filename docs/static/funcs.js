@@ -35,9 +35,9 @@ function createPNG() {
             document.getElementById('render-image').src = blob_dir;
         });
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
+        document.getElementById('diagram').setAttribute('href', blob_dir);
         adjust_size('render-image');
     });
-    document.getElementById('diagram').setAttribute('href', blob_dir);
 }
 
 function createSVG() {
