@@ -34,7 +34,7 @@ function createPNG() {
         });
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
         adjust_size('render-image');
-        document.getElementById('render-image').href = document.getElementById('render-image').src;
+        document.getElementById('btn-edit').href = document.getElementById('render-image').src;
     });
 }
 
