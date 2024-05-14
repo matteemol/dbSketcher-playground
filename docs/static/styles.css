@@ -21,8 +21,6 @@ body {
   background: #252422;
 }
 
-/* MAIN MENU */
-
 main {
   display: grid;
 /*  grid-template-columns: 60% 40%;*/
@@ -34,6 +32,35 @@ main {
   border-radius: 15px;
   z-index: 10;
 }
+
+.loading-state {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #ddd;
+  border-top-color: orange;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 /* CONTENT */
 

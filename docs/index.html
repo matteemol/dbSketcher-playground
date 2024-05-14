@@ -6,7 +6,9 @@
 <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-
+  <div class="loading-state" visibility="hidden">
+    <div class="loading"></div>
+  </div>
     <main>
       <section class="content">
         <div class="text">
@@ -133,6 +135,7 @@ recipe_type::type_id --> recipes::type_id
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   console.log('The page has loaded!');
+  document.getElementsByClassName('loading-state')[0].style.visibility="visible";
   console.log(window.location.pathname)
   loadEngine();
   console.log('Playground ready')
