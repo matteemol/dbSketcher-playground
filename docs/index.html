@@ -10,6 +10,11 @@
     <div class="loading-h2"><h2>Loading engine...</h2></div>
     <div class="loading"></div>
   </div>
+  <div class="visualizing-state" visibility="hidden">
+    <div class="loading-h2"><h2>Creating diagram...</h2></div>
+    <div class="loading"></div>
+    <div class="visualizing-debug" id=debugjava>(...debug div...)</div>
+  </div>
     <main>
       <section class="content">
         <div class="text">
@@ -101,7 +106,6 @@ recipe_type::type_id --> recipes::type_id
         <div class="vis">
           <h2>3: db Diagram</h2>
           <div class=debug id=popup>ERROR</div>
-          <div class=debug id=debugjava>(...debug div...)</div>
           <div class=cell>
             <div class=render><a id="diagram" href=.><img id="render-image"></div></a>
               <div class="render-button">
