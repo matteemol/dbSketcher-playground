@@ -34,6 +34,7 @@ main {
 }
 
 .loading-state {
+  flex-direction: column;
   position: fixed;
   top: 25%;
   left: 25%;
