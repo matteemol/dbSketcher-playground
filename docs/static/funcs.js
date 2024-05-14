@@ -2,7 +2,7 @@ var shortlink = "";
 
 function callfuncs() {
 //    document.getElementById('render-image').style.display="block";
-    document.getElementsByClassName('render-button')[0].style.visibility="visible";
+//    document.getElementsByClassName('render-button')[0].style.visibility="visible";
     alert("Click!");
   }
 
@@ -14,11 +14,12 @@ function adjust_size(elementId) {
     
 function generate_link() {
 text = document.getElementById('uml').value;
-console.log("text="+text);
+// console.log("text="+text);
 cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
     console.log("res="+res);
     shortlink = res;
     url = "https://www.plantuml.com/plantuml/uml/" + res;
+    document.getElementById('plant-link').setAttribute('href', url);
     // alert(url);
 //    document.getElementById('permlink').innerText="See in PlantUML Server";
 });
