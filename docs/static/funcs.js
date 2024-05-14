@@ -1,28 +1,24 @@
 var shortlink = "";
 
 function callfuncs() {
-//    document.getElementById('render-image').style.display="block";
-//    document.getElementsByClassName('render-button')[0].style.visibility="visible";
     alert("Click!");
-  }
+}
 
 function adjust_size(elementId) {
     document.getElementById(elementId).style.width="100%";
     document.getElementById(elementId).style.height="100%";
     document.getElementById(elementId).style.objectFit="contain";
-    }
+}
     
 function generate_link() {
-text = document.getElementById('uml').value;
-// console.log("text="+text);
-cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
-    console.log("res="+res);
-    shortlink = res;
-    url = "https://www.plantuml.com/plantuml/uml/" + res;
-    document.getElementById('plant-link').setAttribute('href', url);
-    // alert(url);
-//    document.getElementById('permlink').innerText="See in PlantUML Server";
-});
+    text = document.getElementById('uml').value;
+    // console.log("text="+text);
+    cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
+        console.log("res="+res);
+        shortlink = res;
+        url = "https://www.plantuml.com/plantuml/uml/" + res;
+        document.getElementById('plant-link').setAttribute('href', url);
+    });
 }
 
 function createPNG() {
@@ -44,6 +40,7 @@ function createPNG() {
     });
 }
 
+/*
 function createSVG() {
     text = document.getElementById('uml').value;
     console.log("text="+text);
@@ -54,16 +51,13 @@ function createSVG() {
         adjust_size('colb');
     });
 }
-
-
-
+*/
 
 function loadEngine() {
-cheerpjInit({disableLoadTimeReporting:false,disableErrorReporting:false}).then( (val0) => {
-cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/static/plantuml-core.jar", "/app/dbSketcher-playground/static/", "debugjava").then ( (val1) => {
-console.log("Engine started");
-document.getElementsByClassName('loading-state')[0].style.visibility="hidden";
-/*generate_link();*/
-});
-});
+    cheerpjInit({disableLoadTimeReporting:false,disableErrorReporting:false}).then( (val0) => {
+        cheerpjRunMain("com.plantuml.api.cheerpj.v1.RunInit", "/app/dbSketcher-playground/static/plantuml-core.jar", "/app/dbSketcher-playground/static/", "debugjava").then ( (val1) => {
+            console.log("Engine started");
+            document.getElementsByClassName('loading-state')[0].style.visibility="hidden";
+        });
+    });
 }
