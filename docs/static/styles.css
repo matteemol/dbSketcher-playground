@@ -34,6 +34,7 @@ main {
 }
 
 .loading-state, .visualizing-state {
+  visibility: hidden;
   flex-direction: column;
   position: fixed;
   top: 25%;
