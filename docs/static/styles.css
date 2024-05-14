@@ -119,6 +119,10 @@ main {
   border-radius: 15px;
 }
 
+.render-text {
+  visibility: hidden;
+}
+
 .render-button {
   flex-direction: row;
   justify-self: center;

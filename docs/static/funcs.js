@@ -38,6 +38,7 @@ function createPNG() {
             document.getElementById('render-image').src = blob_dir;
             document.getElementById('diagram').setAttribute('href', blob_dir);
         });
+        document.getElementsByClassName('render-text')[0].style.visibility="visible";
         document.getElementsByClassName('render-button')[0].style.visibility="visible";
         adjust_size('render-image');
     });
