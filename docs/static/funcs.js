@@ -27,7 +27,9 @@ cjCall("com.plantuml.api.cheerpj.v1.Info", "encode", text).then((res) => {
 function createPNG() {
     text = document.getElementById('uml').value;
     console.log("text="+text);
+    document.getElementsByClassName('visualizing-state')[0].style.visibility="visible";
     cjCall("com.plantuml.api.cheerpj.v1.Png", "convertToBlob", "light", text, "/files/result.png").then((res) => {
+        document.getElementsByClassName('visualizing-state')[0].style.visibility="hidden";
         console.log("png res="+res);
         cjFileBlob("result.png").then((blob) => {
             blob_dir = window.URL.createObjectURL(blob);
